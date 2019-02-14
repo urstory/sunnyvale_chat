@@ -1,0 +1,11 @@
+insert into user (id, name, nick_name, password, email) values(1, '김성박', 'urstory', '{bcrypt}$2a$10$ZEulp8wVXy7eTuQiMqeyn.XqXSpV2xq/587PUSpu0lIghw7rsMvK2', 'urstory@naver.com');
+insert into user (id, name, nick_name, password, email) values(2, '강경미', 'carami', '{bcrypt}$2a$10$ZEulp8wVXy7eTuQiMqeyn.XqXSpV2xq/587PUSpu0lIghw7rsMvK2', 'carami@gmail.com');
+insert into role (id,  name) values (1, 'USER');
+insert into role (id,  name) values (2, 'ADMIN');
+insert into role (id,  name) values (3, 'TEMPUSER');
+insert into role (id,  name) values (4, 'EXTRAUSER');
+insert into user_role(user_id, role_id) values( 1, 1);
+insert into user_role(user_id, role_id) values( 1, 2);
+insert into user_role(user_id, role_id) values( 2, 1);
+insert into user_role(user_id, role_id) values( 2, 2);
+show tables;

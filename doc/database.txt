@@ -1,0 +1,7 @@
+
+create database chatdb default character set utf8mb4;
+create user 'chat'@'localhost' identified by 'chat';
+create user 'chat'@'%' identified by 'chat';
+GRANT ALL PRIVILEGES ON chatdb.* TO 'chat'@'localhost';
+GRANT ALL PRIVILEGES ON chatdb.* TO 'chat'@'%';
+FLUSH PRIVILEGES;

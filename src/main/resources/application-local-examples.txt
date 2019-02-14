@@ -1,0 +1,26 @@
+server.port=443
+spring.jpa.hibernate.ddl-auto= create-drop
+
+server.ssl.key-store: keystore.p12
+server.ssl.key-store-password: testtest
+server.ssl.keyStoreType: PKCS12
+server.ssl.keyAlias: tomcat
+
+logging.config=classpath:logback-spring.xml
+logging.path=./logs
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/chatdb?useUnicode=yes&characterEncoding=UTF-8
+spring.datasource.username=chat
+spring.datasource.password=chat
+spring.datasource.initialization-mode=always
+
+
+facebook.client.clientId: 설정
+facebook.client.clientSecret: 설정
+facebook.client.accessTokenUri: https://graph.facebook.com/oauth/access_token
+facebook.client.userAuthorizationUri: https://www.facebook.com/dialog/oauth
+facebook.client.tokenName: oauth_token
+facebook.client.authenticationScheme: query
+facebook.client.clientAuthenticationScheme: form
+facebook.resource.userInfoUri: https://graph.facebook.com/me?fields=id,name,birthday,email,about,cover

@@ -1,0 +1,4 @@
+# war 실행방법
+java -jar -Dspring.profiles.active=local edu-0.0.1-SNAPSHOT.war
+
+java -jar -Dspring.profiles.active=real edu-0.0.1-SNAPSHOT.war
