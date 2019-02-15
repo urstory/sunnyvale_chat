@@ -128,19 +128,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe().rememberMeParameter("remember-me").key("uniqueAndSecret").tokenValiditySeconds(86400).rememberMeServices(rememberMeServices()).and()
                 .exceptionHandling().accessDeniedHandler(handler403()).authenticationEntryPoint(delegatingEntryPoint()).and()
                 .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
-
-//        http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**").permitAll().anyRequest()
-//                .authenticated().and().exceptionHandling()
-//                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/")).and()
-//                .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
-//
-//        // logout
-//        http.logout()
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/")
-//                .permitAll();
     }
 
 
@@ -216,21 +203,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setFilters(filters);
         return filter;
     }
-
-//    private Filter ssoFilter(ClientResources client, String path) {
-//        //OAuth2ClientAuthenticationProcessingFilter
-//        // attemptAuthentication : 소셜 인증을 시도하는 메서드로 위에서 등록했던 restTemplate 으로 Access Token 을 가져오고 해당 토큰 값으로 사용자 정보를 가져옵니다.
-//        // successfulAuthentication : attemptAuthentication 에서 인증이 성공되었다면 이후에 successfulAuthentication 메서드를 호출하게 됩니다.
-//        // 여기서 중요한 포인트는 authResut 값을 super.successfulAuthentication(request, response, chain, authResult); 메서드를 통해서 SecurityContextHolder에 저장되게 됩니다. 즉 소셜에서 받아온 정보 기반으로 인증 처리를 합니다.
-//        OAuth2ClientAuthenticationProcessingFilter filter = new OAuth2ClientAuthenticationProcessingFilter(path);
-//        OAuth2RestTemplate restTemplate = new OAuth2RestTemplate(client.getClient(), oauth2ClientContext);
-//        filter.setRestTemplate(restTemplate);
-//        UserInfoTokenServices tokenServices = new UserInfoTokenServices(client.getResource().getUserInfoUri(), client.getClient().getClientId());
-//        tokenServices.setRestTemplate(restTemplate);
-//        filter.setTokenServices(tokenServices);
-//        filter.setAuthenticationSuccessHandler(successHandler());
-//        return filter;
-//    }
 
     private AuthenticationSuccessHandler successHandler(String redirectUrl){
         final String url = redirectUrl;
